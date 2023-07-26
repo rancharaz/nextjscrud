@@ -181,7 +181,8 @@ const CrudApp = () => {
         <Title order={3}>Create New User</Title>
         {internalEditComponents}
         <Flex justify="flex-end" mt="xl">
-          <MRT_EditActionButtons variant="text" table={table} row={row} />
+
+          <MRT_EditActionButtons  variant="text" table={table} row={row} />
         </Flex>
       </Stack>
     ),
@@ -209,7 +210,7 @@ const CrudApp = () => {
       </Flex>
     ),
     renderTopToolbarCustomActions: ({ table }) => (
-      <Button
+      <div className="btn" style={{backgroundColor: "blue", padding: "10px", borderRadius: "5px", color: "#fefefe", cursor: "pointer"}}
         onClick={() => {
           table.setCreatingRow(true); //simplest way to open the create row modal with no default values
           //or you can pass in a row object to set default values with the `createRow` helper function
@@ -221,7 +222,7 @@ const CrudApp = () => {
         }}
       >
         Create New User
-      </Button>
+      </div>
     ),
     state: {
       isLoading: isLoadingUsers,
@@ -325,6 +326,7 @@ const ExampleWithProviders = () => (
   <QueryClientProvider client={queryClient}>
     <ModalsProvider>
       <CrudApp />
+      {console.clear()}
     </ModalsProvider>
   </QueryClientProvider>
 );
